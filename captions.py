@@ -29,12 +29,13 @@ def gettranscript(videoid):
 
 	sleep(random.uniform(sleeptime[0],sleeptime[1]))
 
-	options = Options()
+	options = new FirefoxOptions()
+	options.setLegacy(true)
 	options.add_argument("--headless")
 
 	# Create a new instance of the Firefox driver
 	if headless:
-		driver = webdriver.Firefox(firefox_options=options)
+		driver = webdriver.Firefox(options)
 	else:
 		driver = webdriver.Firefox()
 
