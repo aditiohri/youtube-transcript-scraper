@@ -1,5 +1,5 @@
 # modify these values
-filename = 'videolist_zembla_273_2018_05_25-09_17_02.tab'			# filname with video ids
+filename = 'videolist.csv'			# filname with video ids
 colname = 'videoId'													# column storing video ids
 delimiter = '\t'													# delimiter, e.g. ',' for CSV or '\t' for TAB
 waittime = 10														# seconds browser waits before giving up
