@@ -17,7 +17,13 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+firefox_capabilities = DesiredCapabilities.FIREFOX
+firefox_capabilities['marionette'] = True
+
+
+# System.setProperty("webdriver.gecko.driver","/home/aditiohri/Code/python/geckodriver-0.29.0");
 
 def gettranscript(videoid):
 
@@ -29,15 +35,11 @@ def gettranscript(videoid):
 
 	sleep(random.uniform(sleeptime[0],sleeptime[1]))
 
-	options = new FirefoxOptions()
-	options.setLegacy(true)
-	options.add_argument("--headless")
+	options = Options()
 
 	# Create a new instance of the Firefox driver
-	if headless:
-		driver = webdriver.Firefox(options)
-	else:
-		driver = webdriver.Firefox()
+	geckoPath='/home/aditiohri/Code/python/geckodriver'
+	driver = webdriver.Firefox(capabilities=firefox_capabilities, executable_path=geckoPath)
 
 	# navigate to video
 	driver.get("https://www.youtube.com/watch?v="+videoid)
